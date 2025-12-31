@@ -1,23 +1,20 @@
-import { db } from "../firebase/app.js";
-import { setDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { addBattery } from "../firebase/firestore.js";
 
-window.upload = async () => {
-  const file = document.getElementById("file").files[0];
-  const text = await file.text();
-  const rows = text.split("\n").slice(1);
+document.getElementById("excel").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  const data = await file.text();
+  const rows = data.split("\n");
 
-  for (let r of rows) {
-    const [serial, model, years] = r.split(",");
+  for (let i = 1; i < rows.length; i++) {
+    const [serial, model, till] = rows[i].split(",");
     if (!serial) continue;
 
-    await setDoc(doc(db, "batteries", serial.trim()), {
-      serial: serial.trim(),
+    await addBattery(serial.trim(), {
       model,
-      warrantyYears: Number(years),
-      activated: false,
-      status: "Not Sold"
+      warrantyTill: till,
+      status: "inactive"
     });
   }
 
-  document.getElementById("status").innerText = "✅ Upload Complete";
-};
+  alert("Upload complete");
+});
