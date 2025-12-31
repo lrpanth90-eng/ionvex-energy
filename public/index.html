@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ionvex Energy | Warranty Check</title>
-  <link rel="stylesheet" href="../css/main.css">
+  <title>Ionvex Energy | Warranty</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
-  <h2>Ionvex Energy</h2>
 
-  <input id="serialInput" placeholder="Enter Battery Serial Number">
-  <button onclick="checkWarranty()">Check Warranty</button>
+<div class="card" style="max-width:360px;margin:100px auto;text-align:center">
+  <h2>IONVEX ENERGY</h2>
+  <p>Battery Warranty Check</p>
 
-  <div id="result"></div>
+  <input id="serial" placeholder="Enter Battery Serial"
+    style="width:100%;padding:12px;border-radius:6px;border:none">
 
-  <script type="module" src="../js/warranty.js"></script>
+  <button onclick="check()">Check Warranty</button>
+
+  <div id="result" style="margin-top:15px"></div>
+</div>
+
+<script src="/js/warranty/checkWarranty.js"></script>
 </body>
 </html>
