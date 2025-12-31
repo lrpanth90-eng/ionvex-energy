@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Activate Warranty</title>
+  <title>Activate Warranty | Ionvex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
+  <h2>Activate Battery Warranty</h2>
 
-<h2>Activate Battery Warranty</h2>
+  <input id="serial" placeholder="Battery Serial Number"><br><br>
+  <input id="customerName" placeholder="Customer Name"><br><br>
+  <input id="customerPhone" placeholder="Customer Phone"><br><br>
 
-<input id="serial" placeholder="Serial Number"><br>
-<input id="name" placeholder="Customer Name"><br>
-<input id="phone" placeholder="Customer Phone"><br>
+  <button onclick="activateWarranty()">Activate Warranty</button>
 
-<button onclick="activate()">Activate</button>
+  <p id="msg"></p>
 
-<p id="msg"></p>
-
-<script type="module" src="../../js/warranty/activateWarranty.js"></script>
+  <script type="module" src="../../js/dealer/activateWarranty.js"></script>
 </body>
 </html>
