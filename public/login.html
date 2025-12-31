@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Ionvex Login</title>
-</head>
-<body>
+<input id="email">
+<input id="password" type="password">
+<button onclick="doLogin()">Login</button>
 
-<input id="eail" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
-<button onclick="login()">Login</button>
+<script type="module">
+import { login, getUserRole } from "/js/firebase/auth.js";
 
-<script type="module" src="../js/auth.js"></script>
-</body>
-</html>
+window.doLogin = async () => {
+  const email = email.value;
+  const password = password.value;
+
+  const user = await login(email, password);
+  const data = await getUserRole(user.uid);
+
+  if (data.role === "admin") location.href = "/admin/dashboard.html";
+  else location.href = "/dealer/dashboard.html";
+};
+</script>
